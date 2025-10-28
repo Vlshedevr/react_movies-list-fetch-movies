@@ -22,17 +22,20 @@ export const FindMovie: React.FC<Props> = ({ addMovie, movies }) => {
   };
 
   const onAdd = () => {
-    setQuery('');
-    setSelectMovie(null);
-    setError('');
-
     if (
       movies.find(movie => movie.imdbId === selectMovie?.imdbId) ||
       selectMovie === null
     ) {
+      setQuery('');
+      setSelectMovie(null);
+      setError('');
+
       return;
     }
 
+    setQuery('');
+    setSelectMovie(null);
+    setError('');
     addMovie(selectMovie);
   };
 
